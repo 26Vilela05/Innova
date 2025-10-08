@@ -1,7 +1,6 @@
 package com.itb.inf2fm.innova.model.entity;
 
-import jakarta.persistence.Entity;
-
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "coupon_categories")
