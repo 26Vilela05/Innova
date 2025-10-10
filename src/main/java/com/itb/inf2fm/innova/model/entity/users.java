@@ -71,4 +71,13 @@ public class users {
         this.updated_at = updated_at;
     }
 
+    @PrePersist
+    protected void onCreate() {
+        created_at = LocalDateTime.now();
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        updated_at = LocalDateTime.now();
+    }
 }
