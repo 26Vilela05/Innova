@@ -72,12 +72,12 @@ public class usersController {
 
     @PostMapping("/login")
     public ResponseEntity<Object> login(@RequestBody Map<String, String> dados) {
-        users users = usersService.login(dados.get("email"), dados.get("senha"));
+        users users = usersService.login(dados.get("email"), dados.get("passwordHash"));
         if (users != null) {
             return ResponseEntity.ok(users);
         }
         Map<String, String> response = new HashMap<>();
-        response.put("message", "Email ou senha incorretos");
+        response.put("message", "Email ou passwordHash incorretos");
         return ResponseEntity.status(401).body(response);
     }
 
@@ -107,9 +107,9 @@ public class usersController {
             Long usersId = Long.parseLong(id);
             users usersExistente = usersService.findById(usersId); // já lança exceção se não achar
 
-            usersExistente.setNome(users.getNome());
+            usersExistente.setName(users.getName());
             usersExistente.setEmail(users.getEmail());
-            usersExistente.setPassaword_hash(users.getPassaword_hash());
+            usersExistente.setPasswordHash(users.getPasswordHash());
 
             users userAtualizada = usersService.save(usersExistente);
 

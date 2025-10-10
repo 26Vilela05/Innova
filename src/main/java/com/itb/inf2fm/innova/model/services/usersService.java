@@ -25,8 +25,8 @@ public class usersService {
     }
 
      // Login
-    public users login(String email, String passaword_hash) {
-        return usersRepository.findByEmailAndSenha(email, passaword_hash);
+    public users login(String email, String passwordHash) {
+        return usersRepository.findByEmailAndPasswordHash(email, passwordHash);
     }
     
     // Verificar se email existe
@@ -45,9 +45,9 @@ public class usersService {
     // Método responsável em atualizar usuario
     public users update(Long id, users users) {
         users usersExistente = findById(id);
-        usersExistente.setNome(users.getNome());
+        usersExistente.setName(users.getName());
         usersExistente.setEmail(users.getEmail());
-        usersExistente.setPassaword_hash(users.getPassaword_hash());
+        usersExistente.setPasswordHash(users.getPasswordHash());
         return usersRepository.save(usersExistente);
     }
 

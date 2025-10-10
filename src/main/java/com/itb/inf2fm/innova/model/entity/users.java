@@ -13,11 +13,11 @@ public class users {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column (length = 100, nullable = false )
-    private String nome;
+    private String name;
     @Column (length = 255, nullable = false)
     private String email;
-    @Column (length = 255, nullable = false)
-    private String passaword_hash;
+    @Column (name = "password_hash", length = 255, nullable = false)
+    private String passwordHash;
     @Column (nullable = false)
     private LocalDateTime created_at;
     @Column (nullable = true)
@@ -31,12 +31,12 @@ public class users {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public String getName() {
+        return name;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getEmail() {
@@ -47,12 +47,12 @@ public class users {
         this.email = email;
     }
 
-    public String getPassaword_hash() {
-        return passaword_hash;
+    public String getPasswordHash() {
+        return passwordHash;
     }
 
-    public void setPassaword_hash(String passaword_hash) {
-        this.passaword_hash = passaword_hash;
+    public void setPasswordHash(String passwordHash) {
+        this.passwordHash = passwordHash;
     }
 
     public LocalDateTime getCreated_at() {
